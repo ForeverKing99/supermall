@@ -31,8 +31,9 @@
       // 1.创建BScroll对象
       this.scroll = new BScroll(this.$refs.wrapper, {
         click: true,
+        mouWheel:true,
         probeType: this.probeType,
-        pullUpLoad: this.pullUpLoad
+        pullUpLoad: this.pullUpLoad,
       })
 
       // 2.监听滚动的位置
