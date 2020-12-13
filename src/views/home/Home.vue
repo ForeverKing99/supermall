@@ -11,20 +11,21 @@
     ></tab-control>
     <goods-list :goods="showGoods"></goods-list>
     
-    <back-top v-show="isShow"></back-top>
+    <home-top v-show="topShow"></home-top>
   </div>
 </template>
 
 <script>
 import NavBar from "components/common/navbar/NavBar"
-import BackTop from "components/content/backTop/BackTop"
+// import BackTop from "components/content/backTop/BackTop"
 import TabControl from "components/content/tabControl/TabControl"
 import GoodsList from "components/content/goods/GoodsList"
-
+import HomeTop from "components/content/backTop/HomeTop"
 import HomeSwiper from "./childComps/HomeSwiper"
 import RecommendView from "./childComps/RecommendView"
 import FeatureView from "./childComps/FeatureView"
 
+import { scrollTop } from "common/mixin"
 import { getHomeMultidata, getHomeGoods } from "network/home.js"
 
 export default {
@@ -36,7 +37,7 @@ export default {
     FeatureView,
     TabControl,
     GoodsList,
-    BackTop,
+    HomeTop,
   },
   data() {
     return {
@@ -48,9 +49,8 @@ export default {
         sell: { page: 0, list: [] },
       },
       goodsType: "pop",
-      isShow:false,
-      scrollY:0
-      
+      scrollY:0,
+      topShow:false
     }
   },
   created() {
@@ -84,22 +84,7 @@ export default {
         this.goods[type].list.push(...res.data.list)
       })
     },
-    getScroll(event){
-      // console.log(this.$store.state);
-      
-      const scroll = event.target
-      this.$store.state[this.goodsType] = scroll.scrollTop
-      if(scroll.scrollTop >= 812) this.isShow = true
-      else this.isShow = false
-      if(scroll.scrollHeight - scroll.clientHeight - scroll.scrollTop == 0){
-        this.loadMore() 
-      }
-     
-      
-      // console.log(scroll.scrollTop,scroll.scrollHeight,scroll.clientHeight);
-
-
-    },
+    
     loadMore(){
       this.getHomeGoods(this.goodsType)
     },
@@ -118,6 +103,17 @@ export default {
     contentScroll(position) {
       this.isShowBackTop = -position.y > 1000
     },
+    getScroll(event){
+      // console.log(event);
+      
+      const scroll = event.target
+      this.$store.state[this.goodsType] = scroll.scrollTop
+      if(scroll.scrollTop >= 812) this.topShow = true
+      else this.topShow = false
+      if(scroll.scrollHeight - scroll.clientHeight - scroll.scrollTop == 0){
+        this.loadMore() 
+      }
+    },
     
 
   },
@@ -126,7 +122,7 @@ export default {
     
   },
   deactivated() {
-    console.log(this.$store.state)
+    // console.log(this.$store.state)
     
     
   },

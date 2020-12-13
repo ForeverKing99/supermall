@@ -126,6 +126,7 @@
 
         // 3.如果大于1个, 那么在前后分别添加一个slide
         if (this.slideCount > 1) {
+          
           let cloneFirst = slidesEls[0].cloneNode(true);
           let cloneLast = slidesEls[this.slideCount - 1].cloneNode(true);
           swiperEl.insertBefore(cloneLast, slidesEls[0]);

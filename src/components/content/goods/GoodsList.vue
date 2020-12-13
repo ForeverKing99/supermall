@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <goods-list-item v-for="item in goods" :goods-item="item"/>
+    <goods-list-item v-for="item in goods" :goods-item="item" @itemImgLoad="listImgLoad"/>
   </div>
 </template>
 
@@ -19,7 +19,14 @@
           return []
         }
       }
-    }
+    },
+    methods: {
+      listImgLoad(){
+        this.$emit('listImgLoad')
+        // console.log('goodslist load');
+        
+      }
+    },
   }
 </script>
 

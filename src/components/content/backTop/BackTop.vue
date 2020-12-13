@@ -8,17 +8,54 @@
 export default {
   name: "BackTop",
   methods: {
-    backTop(duration=100) {
-      const distance = document.getElementById("home").scrollTop/duration
-       const timer = setInterval(()=>{
-         document.getElementById("home").scrollTop -= distance
-         if(document.getElementById("home").scrollTop<=1) {
-           document.getElementById("home").scrollTop = 0
-           clearInterval(timer)
-         }
-       },1)
+    backTop(duration = 200) {
+      const Path = this.realPath()
+      // console.log(Path)
+
+      console.log(document.getElementById(Path).scrollTop)
+      const distance = document.getElementById(Path).scrollTop / duration
+      console.log(distance)
+
+      const timer = setInterval(() => {
+        document.getElementById(Path).scrollTop -= distance
+        if (document.getElementById(Path).scrollTop <= 1) {
+          document.getElementById(Path).scrollTop = 0
+          clearInterval(timer)
+        }
+      }, 1)
       // console.log(document.getElementById("home").scrollTop)
-      // document.getElementById("home").scrollTop = 0
+    },
+    homeTop(duration = 100) {
+      const Path = this.$route.path
+      // console.log(Path)
+
+      // console.log(document.getElementById(Path))
+      const distance = document.getElementById(Path).scrollTop / duration
+      // console.log(distance)
+
+      const timer = setInterval(() => {
+        document.getElementById(Path).scrollTop -= distance
+        if (document.getElementById(Path).scrollTop <= 1) {
+          document.getElementById(Path).scrollTop = 0
+          clearInterval(timer)
+        }
+      }, 1)
+      // console.log(document.getElementById("home").scrollTop)
+    },
+    realPath() {
+      const arr = this.$route.path.split("")
+      let result = ""
+      let counter = 0
+      for (let item of arr) {
+        if (item === "/") {
+          counter++
+          if (counter === 2) {
+            console.log(result)
+            return result
+          } else continue
+        }
+        result += item
+      }
     },
   },
 }
