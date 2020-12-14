@@ -21,28 +21,31 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    addCart(context, payload) {
-      context.state.allCount++
-      let oldProduct = null
-      // console.log(state);
-      
-      for (let item of context.state.cartList) {
-        if (item.iid === payload.iid) {
-          oldProduct = item
+      addCart(context, payload) {
+        return new Promise((resolve,reject)=>{
+        context.state.allCount++
+        let oldProduct = null
+        // console.log(state);
+        
+        for (let item of context.state.cartList) {
+          if (item.iid === payload.iid) {
+            oldProduct = item
+          }
         }
-      }
-      if (oldProduct) {
-        oldProduct.count++
-        // context.commit('addCount',oldProduct)
-      } else {
-        payload.count = 1
-        payload.checked = false
-        context.state.cartList.push(payload)
-        // context.commit('addToCart',payload)
-      }
-
-    }
+        if (oldProduct) {
+          oldProduct.count++
+          // context.commit('addCount',oldProduct)
+          resolve('当前商品+1')
+        } else {
+          payload.count = 1
+          payload.checked = true
+          context.state.cartList.push(payload)
+          // context.commit('addToCart',payload)
+          resolve('添加了新的商品')
+        }
+    })  
   },
+},
   modules: {
   }
 })

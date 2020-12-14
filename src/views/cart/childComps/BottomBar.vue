@@ -33,6 +33,7 @@
         }, 0)
       },
       isSelectAll: function () {
+        if(this.$store.state.cartList.length == 0) return false
         return this.$store.state.cartList.find(item => item.checked === false) === undefined;
       }
     },

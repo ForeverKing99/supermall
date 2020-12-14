@@ -10,6 +10,7 @@
     <goods-list :goods="recommends" @listImgLoad="imgLoad"></goods-list>
     <back-top v-show="topShow"></back-top>
     <detail-bottom-bar @addToCart="addCart"></detail-bottom-bar>
+    <!-- <toast :message="message" :show="isShow"></toast> -->
   </div>
 </template>
 
@@ -24,6 +25,7 @@ import DetailCommentInfo from "./childComps/DetailCommentInfo"
 import DetailBottomBar from "./childComps/DetailBottomBar"
 import BackTop from "components/content/backTop/BackTop"
 import GoodsList from "components/content/goods/GoodsList"
+import Toast from "components/common/toast/Toast"
 import {
   getDetail,
   Goods,
@@ -47,6 +49,7 @@ export default {
     GoodsList,
     BackTop,
     DetailBottomBar,
+    Toast,
   },
   data() {
     return {
@@ -62,11 +65,10 @@ export default {
       tabTop: [0, 1000, 2000, 3000],
       boll: 1,
       timer: null,
+      message: "",
     }
   },
-  computed: {
-    
-  },
+  computed: {},
   methods: {
     getScroll(event) {
       console.log(event.target.scrollTop)
@@ -131,15 +133,15 @@ export default {
           document.getElementsByClassName("comment-info")[0].offsetTop - 44
         const recommendsY =
           document.getElementsByClassName("goods")[0].offsetTop - 44
-        console.log(paramY, commentY, recommendsY)
-        console.log(this)
+        // console.log(paramY, commentY, recommendsY)
+        // console.log(this)
 
         this.tabTop[1] = paramY
         this.tabTop[2] = commentY
         this.tabTop[3] = recommendsY
       }, 1000).call(this)
     },
-    addCart(){
+    addCart() {
       // console.log('ss');
       // 获取购物车的信息
       const result = {}
@@ -148,11 +150,14 @@ export default {
       result.desc = this.goods.desc
       result.price = this.goods.realPrice
       result.iid = this.iid
-      
 
       // 2.添加进购物车
       // this.$store.commit('addCart',result)
-      this.$store.dispatch('addCart',result)
+      this.$store.dispatch("addCart", result).then(res => {
+        console.log(this.$toast);
+        
+        this.$toast.show(res, 1500)
+      })
     },
   },
   created() {
@@ -161,7 +166,7 @@ export default {
 
     // 2.根据iid请求数据
     getDetail(this.iid).then(res => {
-      console.log(res)
+      // console.log(res)
       const data = res.result
       this.topImages = data.itemInfo.topImages
 
