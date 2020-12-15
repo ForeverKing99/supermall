@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <cate-list-item v-for="item in goods" :goods-item="item" @itemImgLoad="listImgLoad"/>
+    <cate-list-item v-for="(item,index) in goods" :key="index" :goods-item="item" @itemImgLoad="listImgLoad"/>
   </div>
 </template>
 
