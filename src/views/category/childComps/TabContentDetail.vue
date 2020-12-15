@@ -1,20 +1,20 @@
 <template>
   <div>
-    <goods-list-item
+    <cate-list-item
       v-for="(item, index) in categoryDetail"
       :key="index"
       :goodsItem="item"
-    ></goods-list-item>
+    ></cate-list-item>
   </div>
 </template>
 
 <script>
-import GoodsListItem from "components/content/goods/GoodsListItem"
+import CateListItem from "components/content/goods/CateListItem"
 
 export default {
   name: "TabContentDetail",
   components: {
-    GoodsListItem,
+    CateListItem,
   },
   props: {
     categoryDetail: {

@@ -1,10 +1,7 @@
 <template>
   <div id="profile">
     <nav-bar class="nav-bar"><div slot="center">小码哥商城</div></nav-bar>
-    <!--1.单独封装一个组件: 利用slot知识点-->
     <UserInfo></UserInfo>
-
-    <!--2.没有单独封装: 不同的地方太多, 需要传过多的参数-->
     <section class="account">
       <div class="account-item">
         <div class="number"><span class="balance">0.00</span>元</div>
@@ -19,8 +16,6 @@
         <div class="account-info">我的积分</div>
       </div>
     </section>
-
-    <!--3.封装成一个整体-->
     <div id="list">
       <div class="item" style="margin-top:12px;">
         <span class="icon">

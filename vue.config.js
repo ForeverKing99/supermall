@@ -9,15 +9,5 @@ module.exports={
         'views':'@/views'
       }
     },
-    devServer: {
-      host: '0.0.0.0',
-      public:'http://118.250.68.129:8080',
-      port: 8080,
-      https: false,
-      hotOnly: false,
-      disableHostCheck:true,
-      open: true 
-   
-  },
   }
 }

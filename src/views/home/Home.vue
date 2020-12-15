@@ -9,7 +9,7 @@
       class="tab-control"
       @tabClick="whatType"
     ></tab-control>
-    <goods-list :goods="showGoods"></goods-list>
+    <home-list :goods="showGoods"></home-list>
     
     <home-top v-show="topShow"></home-top>
   </div>
@@ -19,7 +19,7 @@
 import NavBar from "components/common/navbar/NavBar"
 // import BackTop from "components/content/backTop/BackTop"
 import TabControl from "components/content/tabControl/TabControl"
-import GoodsList from "components/content/goods/GoodsList"
+import HomeList from "components/content/goods/HomeList"
 import HomeTop from "components/content/backTop/HomeTop"
 import HomeSwiper from "./childComps/HomeSwiper"
 import RecommendView from "./childComps/RecommendView"
@@ -36,7 +36,7 @@ export default {
     RecommendView,
     FeatureView,
     TabControl,
-    GoodsList,
+    HomeList,
     HomeTop,
   },
   data() {

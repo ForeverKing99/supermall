@@ -1,6 +1,6 @@
 <template>
   <div class="goods-item" @click="itemClick">
-    <img :src="goodsItem.image" alt="" @load="itemImgLoad">
+    <img :src="goodsItem.img" alt="" @load="itemImgLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: "GoodsListItem",
+    name: "CateListItem",
     props: {
       goodsItem: {
         type: Object,
