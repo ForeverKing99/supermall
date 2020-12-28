@@ -10,8 +10,6 @@ export const scrollTop = {
   },
   methods:{
     getScroll(event){
-      // console.log(event);
-      
       const scroll = event.target
       this.$store.state[this.goodsType] = scroll.scrollTop
       if(scroll.scrollTop >= 812) this.topShow = true

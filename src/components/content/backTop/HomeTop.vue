@@ -10,7 +10,6 @@ export default {
   methods: {
     homeTop(duration = 100) {
       const Path = this.$route.path.replace('/','')
-      // console.log(Path)
       console.log(document.getElementById(Path))
       const distance = document.getElementById(Path).scrollTop / duration
       const timer = setInterval(() => {
@@ -20,7 +19,6 @@ export default {
           clearInterval(timer)
         }
       }, 1)
-      // console.log(document.getElementById("home").scrollTop)
     },
   },
 }

@@ -1,7 +1,6 @@
 <template>
   <div id="profile">
     <nav-bar class="nav-bar"><div slot="center">小码哥商城</div></nav-bar>
-    <UserInfo></UserInfo>
     <section class="account">
       <div class="account-item">
         <div class="number"><span class="balance">0.00</span>元</div>
@@ -48,20 +47,15 @@
         <div class="info">下载购物APP</div>
       </div>
     </div>
-    <!-- <list-view :list-data="serviceList" class="service-list"></list-view> -->
   </div>
 </template>
 
 <script>
-import UserInfo from "./childComps/UserInfo"
-import ListView from "./childComps/ListView"
 import NavBar from "components/common/navbar/NavBar"
 
 export default {
   name: "Profile",
   components: {
-    UserInfo,
-    ListView,
     NavBar,
   },
   data: function() {

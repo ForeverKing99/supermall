@@ -92,8 +92,6 @@ export default {
     },
     whatType(index) {
       this.goodsType = Object.keys(this.goods)[index]
-      // document.getElementById("home").scrollTop = this.$store.state.currentType[index]
-      // console.log(document.getElementById("home").scrollTop);
       const type = this.$store.state.currentType[index]
       document.getElementById("home").scrollTop = this.$store.state[type]
       console.log(type)

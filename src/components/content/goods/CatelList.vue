@@ -23,8 +23,6 @@
     methods: {
       listImgLoad(){
         this.$emit('listImgLoad')
-        // console.log('goodslist load');
-        
       }
     },
   }

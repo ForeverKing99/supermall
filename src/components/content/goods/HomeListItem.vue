@@ -23,7 +23,6 @@
     computed:{
       img(){
         return this.goodsItem.img 
-        // return this.goodsItem.show.img||this.goodsItem.image||this.goodsItem.img
       }
     },
     methods: {
@@ -34,8 +33,6 @@
       },
       itemImgLoad(){
         this.$emit('itemImgLoad')
-        // console.log('goodslistitem  load');
-        
       }
     },
   }
@@ -45,13 +42,11 @@
   .goods-item {
     padding-bottom: 40px;
     position: relative;
-    /* flex-wrap: wrap; */
     width: 48%;
   }
 
   .goods-item img {
     width: 100%;
-    /* height: 267.11px; */
     border-radius: 5px;
   }
 

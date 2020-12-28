@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <home-list-item v-for="item in goods" :goods-item="item" @itemImgLoad="listImgLoad"/>
+    <home-list-item v-for="(item,index) in goods" :key="index" :goods-item="item" @itemImgLoad="listImgLoad"/>
   </div>
 </template>
 
@@ -23,8 +23,6 @@
     methods: {
       listImgLoad(){
         this.$emit('listImgLoad')
-        // console.log('goodslist load');
-        
       }
     },
   }

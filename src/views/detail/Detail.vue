@@ -10,7 +10,6 @@
     <goods-list :goods="recommends" @listImgLoad="imgLoad"></goods-list>
     <back-top v-show="topShow"></back-top>
     <detail-bottom-bar @addToCart="addCart"></detail-bottom-bar>
-    <!-- <toast :message="message" :show="isShow"></toast> -->
   </div>
 </template>
 
@@ -33,13 +32,11 @@ import {
   GoodsParam,
   getRecommend,
 } from "network/detail"
-// import NavBar from 'components/common/navbar/NavBar'
 
 export default {
   name: "Detail",
   components: {
     DetailNavBar,
-    // NavBar
     DetailSwiper,
     DetailBaseInfo,
     DetailShopInfo,
@@ -75,10 +72,6 @@ export default {
       const scroll = event.target
       if (scroll.scrollTop >= 812) this.topShow = true
       else this.topShow = false
-      // if(scroll.scrollHeight - scroll.clientHeight - scroll.scrollTop == 0){
-      //   this.loadMore()
-      // }
-      // console.log(this.$refs.title);
 
       if (
         scroll.scrollTop < this.tabTop[1] &&
@@ -111,11 +104,9 @@ export default {
       const duration = 100
       const scroll = document.getElementById("detail")
       const distance = (this.tabTop[index] - scroll.scrollTop) / duration
-      // console.log(distance);
 
       const timer = setInterval(() => {
         scroll.scrollTop += distance
-        // console.log(scroll.scrollTop);
         if (Math.abs(scroll.scrollTop - this.tabTop[index]) <= 100) {
           scroll.scrollTop = this.tabTop[index]
           clearInterval(timer)
@@ -123,26 +114,19 @@ export default {
       }, 1)
     },
     imgLoad() {
-      // console.log('aa');
       this.debounce(() => {
-        // console.log(document.getElementsByClassName("param-info")[0].offsetTop);
-
         const paramY =
           document.getElementsByClassName("param-info")[0].offsetTop - 44
         const commentY =
           document.getElementsByClassName("comment-info")[0].offsetTop - 44
         const recommendsY =
           document.getElementsByClassName("goods")[0].offsetTop - 44
-        // console.log(paramY, commentY, recommendsY)
-        // console.log(this)
-
         this.tabTop[1] = paramY
         this.tabTop[2] = commentY
         this.tabTop[3] = recommendsY
       }, 1000).call(this)
     },
     addCart() {
-      // console.log('ss');
       // 获取购物车的信息
       const result = {}
       result.image = this.topImages[0]
@@ -152,7 +136,6 @@ export default {
       result.iid = this.iid
 
       // 2.添加进购物车
-      // this.$store.commit('addCart',result)
       this.$store.dispatch("addCart", result).then(res => {
         console.log(this.$toast);
         

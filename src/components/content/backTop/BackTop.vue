@@ -10,8 +10,6 @@ export default {
   methods: {
     backTop(duration = 200) {
       const Path = this.realPath()
-      // console.log(Path)
-
       console.log(document.getElementById(Path).scrollTop)
       const distance = document.getElementById(Path).scrollTop / duration
       console.log(distance)
@@ -23,16 +21,10 @@ export default {
           clearInterval(timer)
         }
       }, 1)
-      // console.log(document.getElementById("home").scrollTop)
     },
     homeTop(duration = 100) {
       const Path = this.$route.path
-      // console.log(Path)
-
-      // console.log(document.getElementById(Path))
       const distance = document.getElementById(Path).scrollTop / duration
-      // console.log(distance)
-
       const timer = setInterval(() => {
         document.getElementById(Path).scrollTop -= distance
         if (document.getElementById(Path).scrollTop <= 1) {
@@ -40,7 +32,6 @@ export default {
           clearInterval(timer)
         }
       }, 1)
-      // console.log(document.getElementById("home").scrollTop)
     },
     realPath() {
       const arr = this.$route.path.split("")

@@ -23,8 +23,6 @@
     methods: {
       listImgLoad(){
         this.$emit('listImgLoad')
-        // console.log('goodslist load');
-        
       }
     },
   }
@@ -38,6 +36,4 @@
 
     padding: 2px;
   }
-
-
 </style>
