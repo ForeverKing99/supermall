@@ -17,7 +17,6 @@
 
 <script>
 import NavBar from "components/common/navbar/NavBar"
-// import BackTop from "components/content/backTop/BackTop"
 import TabControl from "components/content/tabControl/TabControl"
 import HomeList from "components/content/goods/HomeList"
 import HomeTop from "components/content/backTop/HomeTop"

@@ -164,9 +164,6 @@ export default {
   display: flex;
 }
 
-/* .goods-item{
-  width: 40% !important;
-} */
 
 #tab-content {
   height: 100%;
@@ -180,11 +177,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* height: 99999px; */
 }
 .tab-content-detail .goods-item{
-  /* display: flex; */
-  
   width: 30vw;
   
 }

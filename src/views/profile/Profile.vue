@@ -1,6 +1,6 @@
 <template>
   <div id="profile">
-    <nav-bar class="nav-bar"><div slot="center">小码哥商城</div></nav-bar>
+    <nav-bar class="nav-bar"><div slot="center">商城</div></nav-bar>
     <section class="account">
       <div class="account-item">
         <div class="number"><span class="balance">0.00</span>元</div>
