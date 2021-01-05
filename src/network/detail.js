@@ -1,8 +1,8 @@
 import { request } from './request'
 export function getDetail(iid) {
   return request({
-    url: "/detail",
     params: {
+      reqpath:"detail",
       iid
     }
   })
@@ -10,7 +10,9 @@ export function getDetail(iid) {
 
 export function getRecommend() {
   return request({
-    url: '/recommend'
+    params:{
+      reqpath:"recommend"
+    }
   })
 }
 

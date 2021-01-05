@@ -3,14 +3,16 @@ import {request} from './request'
 
 export function getCategory() {
   return request({
-    url: '/category'
+    params:{
+      reqpath:"category"
+    }
   })
 }
 
 export function getSubcategory(maitKey) {
   return request({
-    url: '/subcategory',
     params: {
+      reqpath:"subcategory",
       maitKey
     }
   })
@@ -18,8 +20,8 @@ export function getSubcategory(maitKey) {
 
 export function getCategoryDetail(miniWallkey, type) {
   return request({
-    url: '/subcategory/detail',
     params: {
+      reqpath:"subcategory/detail",
       miniWallkey,
       type
     }
