@@ -39,7 +39,6 @@ const routes = [
 ]
 const router = new VueRouter({
   routes,
-  mode: 'history',
   meta:{
     keepAlive:true
   }
