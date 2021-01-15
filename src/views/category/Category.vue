@@ -10,13 +10,6 @@
           <tab-content-category
             :subcategories="showSubcategory"
           ></tab-content-category>
-          <tab-control
-            :titles="['新品', '综合', '销量']"
-            @tabClick="tabClick"
-          ></tab-control>
-          <tab-content-detail
-            :category-detail="showCategoryDetail"
-           class="tab-content-detail"></tab-content-detail>
         </div>
       </div>
     </div>
@@ -27,9 +20,7 @@
 import NavBar from "components/common/navbar/NavBar"
 import TabMenu from "./childComps/TabMenu"
 import TabContentCategory from "./childComps/TabContentCategory"
-import TabControl from "components/content/tabControl/TabControl"
 import Scroll from "components/common/scroll/Scroll"
-import TabContentDetail from "./childComps/TabContentDetail"
 import { POP, SELL, NEW } from "@/common/const"
 
 import {
@@ -44,9 +35,7 @@ export default {
     NavBar,
     TabMenu,
     TabContentCategory,
-    TabControl,
     Scroll,
-    TabContentDetail,
   },
   computed: {
     showSubcategory() {
